@@ -1,13 +1,13 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+var bodyPaser = require('body-parser');
 var port = 4200;
 var cors = require('cors');
 
 // Monogoose connection with mongodb
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/MERNSTACK')
+mongoose.connect('mongodb://<uname>:<pwd>@ds139322.mlab.com:39322/aufinancex')
     .then(() => {//if all is ok we will be here
       console.log('start');
     })
@@ -21,7 +21,7 @@ var itemRouter = require('./src/routes/itemRoutes');
 //use middlewares to set view engine and post json data to the server
 app.use(express.static('public'));
 app.use(cors());
-app.use(bodyParser.urlencoded({extentded: true}));
+app.use(bodyParser.urlencoded(extentded: true));
 app.use(bodyParser.json());
 
 app.use('/items',itemRouter);
