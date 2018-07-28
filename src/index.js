@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AddItem from './components/AddItem';
 import IndexItem from './components/IndexItem';
+import EditItem from './components/EditItem';
+
 
 ReactDOM.render(
           <Router>
@@ -13,6 +15,7 @@ ReactDOM.render(
                       <Route exact path='/' component={App} />
                       <Route exact path='/add-item' component={AddItem} />
                       <Route path='/index' component={IndexItem}>
+                      <Route path='/edit/:id' component={EditItem} />
               </div>
           </Router>, document.getElementById('root'));
 
